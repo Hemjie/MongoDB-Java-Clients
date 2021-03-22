@@ -99,7 +99,7 @@ public class Driver {
         // 8. Combien de clients ont un email qui termine par : .tv
 
         long q8 = clients.countDocuments(new Document("email", new Document(
-                "$regex", Pattern.compile(".tv$")
+                "$regex", Pattern.compile("\\.tv$")
         )));
 
         System.out.println(q8 + " clients ont un email finissant par .tv");
@@ -122,10 +122,10 @@ public class Driver {
 
         // 11. Combien de clients habitent en Californie
 
-        long q11 = clients.countDocuments(new Document("address", new Document(
-                "$regex", Pattern.compile("California", Pattern.CASE_INSENSITIVE)
-        )));
+        long q11 = clients.countDocuments(new Document("address",
+                Pattern.compile("California", Pattern.CASE_INSENSITIVE)
+        ));
 
-        System.out.println(q11 + "c lients vivent en Californie");
+        System.out.println(q11 + " clients vivent en Californie");
     }
 }
