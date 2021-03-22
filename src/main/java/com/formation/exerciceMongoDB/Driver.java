@@ -78,7 +78,9 @@ public class Driver {
                 fields(excludeId(),include("name.first", "name.last", "company")));
 
         for (Document client : q6) {
-            System.out.println(client);
+            Document name = (Document)client.get("name");
+            System.out.println(name.get("first") + " " + name.get("last") +
+                    " est dans la compagnie " + client.get("company"));
         }
 
         // 7. Chercher les clients ayant un poids entre 67 et 92 kg
